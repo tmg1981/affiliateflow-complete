@@ -87,6 +87,7 @@ Internationalization support - [Template with i18n](https://tailwind-nextjs-star
 - [trungtmnguyen.com](https://www.trungtmnguyen.com/) - 🇻🇳 Trung's personal and technical blogs – some idea about me, tips, ideas and learned. Add some custom components, like: UnderlineHoverLink, Timeline, neon-border styles and will have more in the future. ([source](https://github.com/trungntm/trungtmnguyen.com))
 - [Ryan Fitton's Blog](https://ryanfitton.co.uk/) – A custom theme version with 'Portfolio' section. Used as a personal Blog/Portfolio for development projects. ([source code](https://github.com/ryanfitton/ryanfitton-nextjs-2024))
 - [ktovoz.com](https://www.ktovoz.com/) - Kto's personal blog, sharing life, technology. Added article categories and article directory navigation 「中文」
+- [Oğuzhan's Personal Website](https://oguzhankircali.com) - I've enriched my website with Instapaper, GitHub, TMDB, RAWG APIs, scrapers for Goodreads, daily steps from Apple Health and more to show my stuffs beside blogging. ([Project Link](https://oguzhankircali.com/about/lists/health))
 
 Using the template? Feel free to create a PR and add your blog to this list.
 
