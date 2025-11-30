@@ -7,52 +7,51 @@ import Footer from './Footer'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import { ReactNode } from 'react'
+import { HomeIcon, PlusCircleIcon, DocumentTextIcon, CogIcon } from '@heroicons/react/24/outline'
 
 interface Props {
   children: ReactNode
 }
 
 const LayoutWrapper = ({ children }: Props) => {
+  const navItems = [
+    { name: 'Home', href: '/', icon: HomeIcon },
+    { name: 'Create Post', href: '/create', icon: PlusCircleIcon },
+    { name: 'My Posts', href: '/my-posts', icon: DocumentTextIcon },
+    { name: 'Settings', href: '/settings', icon: CogIcon },
+  ]
+
   return (
-    <SectionContainer>
-      <div className="flex h-screen flex-col justify-between">
-        <header className="flex items-center justify-between py-10">
-          <div>
-            <Link href="/" aria-label={siteMetadata.headerTitle}>
-              <div className="flex items-center justify-between">
-                <div className="mr-3">
-                  <Logo />
-                </div>
-                {typeof siteMetadata.headerTitle === 'string' ? (
-                  <div className="hidden h-6 text-2xl font-semibold sm:block">
-                    {siteMetadata.headerTitle}
-                  </div>
-                ) : (
-                  siteMetadata.headerTitle
-                )}
-              </div>
-            </Link>
-          </div>
-          <div className="flex items-center text-base leading-5">
-            <div className="hidden sm:block">
-              {headerNavLinks.map((link) => (
-                <Link
-                  key={link.title}
-                  href={link.href}
-                  className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
-                >
-                  {link.title}
-                </Link>
-              ))}
-            </div>
-            <ThemeSwitch />
-            <MobileNav />
-          </div>
-        </header>
-        <main className="mb-auto">{children}</main>
-        <Footer />
-      </div>
-    </SectionContainer>
+    <div className="flex h-screen bg-gray-900 text-white">
+      {/* سایدبار چپ */}
+      <aside className="w-64 bg-gray-800 border-r border-gray-700 flex flex-col">
+        <div className="p-6 border-b border-gray-700">
+          <h1 className="text-2xl font-bold text-cyan-400">AffiliateFlow</h1>
+        </div>
+        <nav className="flex-1 p-4">
+          {navItems.map((item) => {
+            const Icon = item.icon
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="flex items-center gap-3 px-4 py-3 mb-2 rounded-lg hover:bg-gray-700 transition-colors"
+              >
+                <Icon className="w-5 h-5" />
+                <span>{item.name}</span>
+              </Link>
+            )
+          })}
+        </nav>
+      </aside>
+
+      {/* محتوای اصلی */}
+      <main className="flex-1 overflow-y-auto">
+        <div className="max-w-7xl mx-auto p-8">
+          {children}
+        </div>
+      </main>
+    </div>
   )
 }
 
